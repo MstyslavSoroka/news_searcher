@@ -9,7 +9,7 @@ btn.addEventListener('click', (e) => {
     return;
   }
   fetch(
-    `https://newsapi.org/v2/everything?q=${request}&apiKey=4988d0376de8410b9940549c5ab8400e`,
+    `https://gnews.io/api/v4/search?q=${request}&lang=en&max=10&apikey=159ab06003a9adc30bd8aa2ea46eeba7`,
   )
     .then((response) => {
       return response.json();
@@ -22,6 +22,7 @@ btn.addEventListener('click', (e) => {
         const articleDiv = document.createElement('div');
         articleDiv.classList.add('article');
         articleDiv.innerHTML = `
+            <img src="${article.image}">
             <h3>${article.title}</h3>
             <p>${article.description}</p>
             <a href="${article.url}">Read more</a>
